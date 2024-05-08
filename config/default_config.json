@@ -1,0 +1,7 @@
+{
+  "CACHE_TYPE": "SimpleCache",
+  "CACHE_DEFAULT_TIMEOUT": 86400,
+  "OPEN_STREET_MAPPER": {
+    "roundabout": "junction"
+  }
+}
