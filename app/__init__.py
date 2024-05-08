@@ -1,5 +1,4 @@
 import json
-import os
 
 from flask import Flask
 
@@ -20,8 +19,4 @@ def create_app():
 
 
 if __name__ == '__main__':
-    app = create_app()
-    if "DEVELOPMENT" in os.environ:
-        app.run(debug=True)
-    else:
-        app.run("0.0.0.0")
+    create_app().run(debug=True)
