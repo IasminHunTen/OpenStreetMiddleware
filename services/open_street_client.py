@@ -35,6 +35,6 @@ class OpenStreetClient:
     @cache.memoize()
     def find_elements(self, elements, area):
         return {
-            el: self.__find_element(el, area)
+            el: self.__find_element(el.lower(), area)
             for el in elements
         }
