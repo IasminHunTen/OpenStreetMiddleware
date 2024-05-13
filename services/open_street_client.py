@@ -1,5 +1,8 @@
+import json
+
 from flask import Flask
 import requests as rq
+from geopy.distance import geodesic
 
 from extentions import cache
 
@@ -30,7 +33,11 @@ class OpenStreetClient:
             "data": self.__string_payload.format(self.__mapper[element], element, area)
         })
         data = response.json()
-        return "elements" in data and len(data["elements"]) > 0
+        try:
+            value = data["elements"][0]
+            return tuple([value["center"]["lat"], value["center"]["lon"]])
+        except Exception:
+            return tuple()
 
     @cache.memoize()
     def find_elements(self, elements, area):
