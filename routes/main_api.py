@@ -39,7 +39,7 @@ def find_distance(origin, elements):
         if value is None:
             return None
         if not len(value):
-            return -1.0
+            return float('nan')
         return geodesic(origin, value).m
     return {
         k: for_one_element(v) for k, v in elements.items()
